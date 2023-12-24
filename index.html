@@ -1,16 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Tran Family Christmas</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./styles.css">
+        <title>Christmas Bingo</title>
     </head>
     <body>
-        <h1 style="text-align: center;">BINGO</h1>
+        <h1>B I N G O</h1>
+        <div class="img_rules">
+            <div class="bingo_img">
+                <img src="images/bingo.png"/>
+            </div>
+            <div class="rules">
+                <h2>Rules</h2>
+                <p>1. Press the SPIN button to roll a number.</p>
+                <p>2. Keep going until someone gets BINGO.</p>
+                <p>3. Press RESTART when you want to start a new game.</p>
+            </div>
+        </div>
+        <h2 id="number">#</h2>
         <div class="bingo_btns">
-            <button>SPIN</button>
-            <button>RESTART</button>
+            <button id="spin" onclick="rollANumber()">SPIN</button>
+            <button id="restart" onclick="restartBingo()">RESTART</button>
         </div>
         <div class="previous_rslt">
-            <h2>Previous Numbers</h2>
+            <h2>Numbers Called</h2>
+            <h3 id="prev_nums">#</h3>
         </div>
+        <script>
+            //nums = [...Array(75).keys].map(i => i + 1);
+            nums = createArray();
+            nums = nums.sort((a, b) => 0.5 - Math.random());
+            called = [];
+            idx = 0;
+            function rollANumber() {
+                if (idx < 75) {
+                    document.getElementById("number").textContent = nums[idx];
+                    called.push(nums[idx]);
+                    idx = idx + 1;
+                    callednums = "";
+                    for (let i = 0; i < called.length; i++) {
+                        if (i != 0) {
+                            callednums = "" + callednums + ", " + called[i];
+                        }
+                        else {
+                            callednums = "" + callednums + called[i];
+                        }
+                    }
+                    document.getElementById("prev_nums").textContent = callednums;
+                }
+                else {
+                    document.getElementById("number").textContent = "All Numbers Have Been Called!";
+                }
+            }
+            function restartBingo() {
+                called = [];
+                nums = nums.sort((a, b) => 0.5 - Math.random());
+                idx = 0;
+                document.getElementById("number").textContent = "#";
+                document.getElementById("prev_nums").textContent = "#";
+            }
+            function createArray() {
+                let newnums = [];
+                for (let i = 1; i < 76; i++) {
+                    newnums.push(i);
+                }
+                return newnums;
+            }
+        </script>
     </body>
 </html>
