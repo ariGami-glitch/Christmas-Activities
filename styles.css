@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    font-family: cursive;
+}
+h1 {
+    color: darkgreen;
+    font-size: 50px;
+}
+.rules h2 {
+    text-align: center;
+    margin: 0px;
+}
+.rules {
+    text-align: left;
+    display: inline-block;
+    margin: 0px 0px 0px 30px;
+    width: 220px;
+    height: 230px;
+    background-color: lightgray;
+    padding: 0px 0px 0px 10px;
+}
+.bingo_img {
+    display: inline-block;
+    background-color: lightgray;
+}
+img {
+    display: inline-block;
+    width: 200px;
+    height: 220px;
+    margin: 0px 0px;
+}
+.bingo_btns {
+    padding: 2px 0px 2px 30px;
+}
+button {
+    font-size: 30px;
+    padding: 5px 20px 5px 20px;
+    margin: 0px 10px 0px 10px;
+    border: solid transparent;
+    border-radius: 16px; 
+    border-width: 4px;
+}
+#number {
+    font-size: 50px;
+}
+#prev_nums {
+    font-size: 22px;
+}
+#spin {
+    background-color: green;
+}
+#restart {
+    background-color: red;
+}
+.previous_rslt {
+    background-color: gray;
+    padding: 1px 10px 1px 10px;
+    margin: 10px;
+    overflow-wrap: break-word;
+}
